@@ -1,0 +1,15 @@
+networks:
+  default:
+    external:
+      name: nat
+services:
+  carservice.web:
+    build:
+      context: c:\users\ruzza.desktop-etlkrpd\source\repos\CarService
+      dockerfile: CarService.Web\Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: carservice.web
+    ports:
+    - 80/tcp
+version: '3.0'

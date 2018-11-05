@@ -1,0 +1,9 @@
+c:\users\ruzza.desktop-etlkrpd\source\repos\CarService\CarService.Domain\bin\Debug\netcoreapp2.0\CarService.Domain.deps.json
+c:\users\ruzza.desktop-etlkrpd\source\repos\CarService\CarService.Domain\bin\Debug\netcoreapp2.0\CarService.Domain.dll
+c:\users\ruzza.desktop-etlkrpd\source\repos\CarService\CarService.Domain\obj\Debug\netcoreapp2.0\CarService.Domain.csprojResolveAssemblyReference.cache
+c:\users\ruzza.desktop-etlkrpd\source\repos\CarService\CarService.Domain\obj\Debug\netcoreapp2.0\CarService.Domain.csproj.CoreCompileInputs.cache
+c:\users\ruzza.desktop-etlkrpd\source\repos\CarService\CarService.Domain\obj\Debug\netcoreapp2.0\CarService.Domain.AssemblyInfoInputs.cache
+c:\users\ruzza.desktop-etlkrpd\source\repos\CarService\CarService.Domain\obj\Debug\netcoreapp2.0\CarService.Domain.AssemblyInfo.cs
+c:\users\ruzza.desktop-etlkrpd\source\repos\CarService\CarService.Domain\obj\Debug\netcoreapp2.0\CarService.Domain.dll
+c:\users\ruzza.desktop-etlkrpd\source\repos\CarService\CarService.Domain\bin\Debug\netcoreapp2.0\CarService.Domain.pdb
+c:\users\ruzza.desktop-etlkrpd\source\repos\CarService\CarService.Domain\obj\Debug\netcoreapp2.0\CarService.Domain.pdb
