@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using CarService.Domain.Repositories;
 using CarService.Web.Model;
@@ -14,23 +16,26 @@ namespace CarService.Web.Controllers
     public class ServiceController : Controller
     {
         IVehicleRepository _vehicalRepository;
+        IServiceRepository _serviceRepository;
         IEntrySessionService _entryService;
         public ServiceController(IVehicleRepository vehicalRepository,
-                                 IEntrySessionService entryService)
+                                 IEntrySessionService entryService,
+                                 IServiceRepository serviceRepository)
         {
             _vehicalRepository = vehicalRepository;
             _entryService = entryService;
+            _serviceRepository = serviceRepository;
         }
-
-        [Route("session")]
+        
+        [HttpGet("session")]
         public async Task<IActionResult> GetSession()
         {
             var session = new { token = _entryService.GetSession() };
 
             return Ok(session);
         }
-
-        [Route("years")]
+        
+        [HttpGet("years")]
         public async Task<IActionResult> GetVehicleYear()
         {
             List<int> list = new List<int>();
@@ -42,8 +47,8 @@ namespace CarService.Web.Controllers
 
             return Ok(list);
         }
-
-        [Route("makes")]
+        
+        [HttpGet("makes")]
         public async Task<IActionResult> GetVehicleMake(int year)
         {
             var data = _vehicalRepository
@@ -60,8 +65,8 @@ namespace CarService.Web.Controllers
             }
             return Ok(result);
         }
-
-        [Route("models")]
+        
+        [HttpGet("models")]
         public async Task<IActionResult> GetVehicleModel(string name, int year)
         {
 
@@ -83,40 +88,131 @@ namespace CarService.Web.Controllers
 
             return Ok(result);
         }
-
-        public async Task<IActionResult> PostVehicle()
+        [HttpPost("vehicle")]
+        public IActionResult PostVehicle(string session, [FromBody] VehicleDTO data)
         {
-            throw new NotImplementedException();
+            _entryService.SetVehicle(int.Parse(session), data.Model, data.Make, data.Year, data.Mileage);
+            return Ok();
         }
-
+        [HttpGet("needs")]
         public async Task<IActionResult> GetServiceNeeds()
         {
-            throw new NotImplementedException();
+            var data = _serviceRepository.Get();
+            List<VehicleServiceDTO> result = new List<VehicleServiceDTO>();
+            foreach (var entry in data)
+            {
+                result.Add(new VehicleServiceDTO
+                {
+                    Id = entry.ServiceId,
+                    Name = entry.Name
+                });
+            }
+            return Ok(result);
+        }
+        [HttpPost("needs")]
+        public async Task<IActionResult> PostServiceNeeds(string session, [FromBody]ServiceNeedsDTO data)
+        {
+            _entryService.SetServiceNeeds(int.Parse(session), data.Ids.ToList(), data.Text);
+            return Ok();
+        }
+        [HttpGet("time")]
+        public async Task<IActionResult> GetDateAndTime(int year, int month, int day)
+        {
+            List<TimeDTO> list = new List<TimeDTO>();
+            for(int i = 10; i < 20; i++)
+            {
+                list.Add(new TimeDTO
+                {
+                    Hours = i,
+                    Minutes = 0,
+                    Available = true
+                });
+            }
+            return Ok(list);
+        }
+        [HttpPost("time")]
+        public async Task<IActionResult> PostDateAndTime(string session, [FromBody]DateTimeDTO data)
+        {
+            _entryService.setDateTime(int.Parse(session), data);
+            return Ok();
         }
 
-        public async Task<IActionResult> PostServiceNeeds()
+        [HttpGet("summary")]
+        public async Task<IActionResult> GetSummary(string session)
         {
-            throw new NotImplementedException();
-        }
+            SummaryDTO result = new SummaryDTO();
 
-        public async Task<IActionResult> GetDateAndTime()
-        {
-            throw new NotImplementedException();
-        }
+            result.Vehicle = _entryService.GetVehicle(int.Parse(session));
 
-        public async Task<IActionResult> PostDateAndTime()
-        {
-            throw new NotImplementedException();
-        }
+            result.DateTime = _entryService.GetDateTime(int.Parse(session));
 
-        public async Task<IActionResult> GetSummary()
-        {
-            throw new NotImplementedException();
-        }
+            List<string> services = new List<string>();
 
-        public async Task<IActionResult> PostContactInformation()
+            var data = _serviceRepository.Get();
+            var ids = _entryService.GetServiceNeeds(int.Parse(session));
+            foreach (var id in ids)
+            {
+                services.Add(data.Find(el => el.ServiceId == id).Name);
+            }
+            result.Services = services;
+
+            return Ok(result);
+        }
+        [HttpPost("contactInfo")]
+        public async Task<IActionResult> PostContactInformation(string session, [FromBody]ContactInfoDTO data)
         {
-            throw new NotImplementedException();
+
+            var vehicle = _entryService.GetVehicle(int.Parse(session));
+            var dateTime = _entryService.GetDateTime(int.Parse(session));
+            List<string> services = new List<string>();
+
+            var allServices = _serviceRepository.Get();
+            var ids = _entryService.GetServiceNeeds(int.Parse(session));
+            foreach (var id in ids)
+            {
+                services.Add(allServices.Find(el => el.ServiceId == id).Name);
+            }
+            var fromAddress = new MailAddress("allrestaurants.max@gmail.com", "CarService"); //email
+            
+            var toAddress = new MailAddress(data.Email, "CarService");
+            //const string fromPassword = "vasyanomer1"; //Password
+            const string fromPassword = "Project777"; //Password
+            //const string fromPassword = "@1Priv@t&123$"; //Password
+            string subject = "Your appointment has been scheduled";
+            string body = "<h2> Hello, " + data.FirstName + " " + data.LastName + "<h2>"
+                          +"<p>"+ "Your appointment has been scheduled" + "</p>"
+                          + "<h3>Date and Time: </h3>"
+                          + "<p>" +dateTime+ "</p>"
+                          + "<h3>Vehicle: </h3>"
+                          + "<p>" + $"{vehicle.Year} {vehicle.Make} {vehicle.Model}" + "</p>"
+                          + "<h3>" + "Services:" + "</h3>"
+                          +"<ul>";
+            foreach(var service in services)
+            {
+                body += "<li>" + service+"</li>";
+            }
+            body += "</ul>";
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                //UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+            };
+            using (var message = new MailMessage(fromAddress, toAddress)
+            {
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            })
+            {
+                smtp.Send(message);
+            }
+            //_entryService.RemoveSession(int.Parse(session));
+            return Ok(new { dateTime = dateTime});
         }
 
         public async Task<IActionResult> GetAppointmentInformation()

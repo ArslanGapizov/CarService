@@ -28,12 +28,23 @@ namespace CarService.Web
         public void ConfigureServices(IServiceCollection services)
         {
             var connectionString = Configuration["ConnectionStrings:localDb"];
-            services.AddDbContext<CarServiceDbContext>(options => options.UseSqlServer(connectionString));
+
+            //services.AddDbContext<CarServiceDbContext>(options => options.UseSqlServer(connectionString));
+
+            services.AddDbContext<CarServiceDbContext>(options => options.UseInMemoryDatabase(databaseName: "InMemoryDb"));
 
             services.AddMvc();
 
             services.AddScoped<IVehicleRepository, VehicleRepository>();
+            services.AddScoped<IServiceRepository, ServiceRepository>();
             services.AddSingleton<IEntrySessionService, EntrySessionService>();
+
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +54,8 @@ namespace CarService.Web
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("MyPolicy");
             DbInitializer.Seed(app);
             app.UseMvc();
         }

@@ -13151,11 +13151,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "c:\\users\\ruzza.desktop-etlkrpd\\source\\repos\\CarService\\CarService.Web\\CarService.Web.csproj",
+      "projectUniqueName": "C:\\Users\\ruzza.DESKTOP-ETLKRPD\\source\\repos\\CarService\\CarService.Web\\CarService.Web.csproj",
       "projectName": "CarService.Web",
-      "projectPath": "c:\\users\\ruzza.desktop-etlkrpd\\source\\repos\\CarService\\CarService.Web\\CarService.Web.csproj",
+      "projectPath": "C:\\Users\\ruzza.DESKTOP-ETLKRPD\\source\\repos\\CarService\\CarService.Web\\CarService.Web.csproj",
       "packagesPath": "C:\\Users\\ruzza.DESKTOP-ETLKRPD\\.nuget\\packages\\",
-      "outputPath": "c:\\users\\ruzza.desktop-etlkrpd\\source\\repos\\CarService\\CarService.Web\\obj\\",
+      "outputPath": "C:\\Users\\ruzza.DESKTOP-ETLKRPD\\source\\repos\\CarService\\CarService.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13174,8 +13174,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "c:\\users\\ruzza.desktop-etlkrpd\\source\\repos\\CarService\\CarService.Domain\\CarService.Domain.csproj": {
-              "projectPath": "c:\\users\\ruzza.desktop-etlkrpd\\source\\repos\\CarService\\CarService.Domain\\CarService.Domain.csproj"
+            "C:\\Users\\ruzza.DESKTOP-ETLKRPD\\source\\repos\\CarService\\CarService.Domain\\CarService.Domain.csproj": {
+              "projectPath": "C:\\Users\\ruzza.DESKTOP-ETLKRPD\\source\\repos\\CarService\\CarService.Domain\\CarService.Domain.csproj"
             }
           }
         }

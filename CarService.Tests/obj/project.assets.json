@@ -14262,11 +14262,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "c:\\users\\ruzza.desktop-etlkrpd\\source\\repos\\CarService\\CarService.Tests\\CarService.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\ruzza.DESKTOP-ETLKRPD\\source\\repos\\CarService\\CarService.Tests\\CarService.Tests.csproj",
       "projectName": "CarService.Tests",
-      "projectPath": "c:\\users\\ruzza.desktop-etlkrpd\\source\\repos\\CarService\\CarService.Tests\\CarService.Tests.csproj",
+      "projectPath": "C:\\Users\\ruzza.DESKTOP-ETLKRPD\\source\\repos\\CarService\\CarService.Tests\\CarService.Tests.csproj",
       "packagesPath": "C:\\Users\\ruzza.DESKTOP-ETLKRPD\\.nuget\\packages\\",
-      "outputPath": "c:\\users\\ruzza.desktop-etlkrpd\\source\\repos\\CarService\\CarService.Tests\\obj\\",
+      "outputPath": "C:\\Users\\ruzza.DESKTOP-ETLKRPD\\source\\repos\\CarService\\CarService.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -14285,11 +14285,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "c:\\users\\ruzza.desktop-etlkrpd\\source\\repos\\CarService\\CarService.Web\\CarService.Web.csproj": {
-              "projectPath": "c:\\users\\ruzza.desktop-etlkrpd\\source\\repos\\CarService\\CarService.Web\\CarService.Web.csproj"
+            "C:\\Users\\ruzza.DESKTOP-ETLKRPD\\source\\repos\\CarService\\CarService.Web\\CarService.Web.csproj": {
+              "projectPath": "C:\\Users\\ruzza.DESKTOP-ETLKRPD\\source\\repos\\CarService\\CarService.Web\\CarService.Web.csproj"
             },
-            "c:\\users\\ruzza.desktop-etlkrpd\\source\\repos\\CarService\\CarService.Domain\\CarService.Domain.csproj": {
-              "projectPath": "c:\\users\\ruzza.desktop-etlkrpd\\source\\repos\\CarService\\CarService.Domain\\CarService.Domain.csproj"
+            "C:\\Users\\ruzza.DESKTOP-ETLKRPD\\source\\repos\\CarService\\CarService.Domain\\CarService.Domain.csproj": {
+              "projectPath": "C:\\Users\\ruzza.DESKTOP-ETLKRPD\\source\\repos\\CarService\\CarService.Domain\\CarService.Domain.csproj"
             }
           }
         }

@@ -1,0 +1,13 @@
+C:\Users\ruzza.DESKTOP-ETLKRPD\source\repos\CarService\CarService.Web\bin\Any CPU\Release\netcoreapp2.0\CarService.Web.deps.json
+C:\Users\ruzza.DESKTOP-ETLKRPD\source\repos\CarService\CarService.Web\bin\Any CPU\Release\netcoreapp2.0\CarService.Web.runtimeconfig.json
+C:\Users\ruzza.DESKTOP-ETLKRPD\source\repos\CarService\CarService.Web\bin\Any CPU\Release\netcoreapp2.0\CarService.Web.runtimeconfig.dev.json
+C:\Users\ruzza.DESKTOP-ETLKRPD\source\repos\CarService\CarService.Web\bin\Any CPU\Release\netcoreapp2.0\CarService.Web.dll
+C:\Users\ruzza.DESKTOP-ETLKRPD\source\repos\CarService\CarService.Web\bin\Any CPU\Release\netcoreapp2.0\CarService.Web.pdb
+C:\Users\ruzza.DESKTOP-ETLKRPD\source\repos\CarService\CarService.Web\bin\Any CPU\Release\netcoreapp2.0\CarService.Domain.dll
+C:\Users\ruzza.DESKTOP-ETLKRPD\source\repos\CarService\CarService.Web\bin\Any CPU\Release\netcoreapp2.0\CarService.Domain.pdb
+C:\Users\ruzza.DESKTOP-ETLKRPD\source\repos\CarService\CarService.Web\obj\Any CPU\Release\netcoreapp2.0\CarService.Web.csprojResolveAssemblyReference.cache
+C:\Users\ruzza.DESKTOP-ETLKRPD\source\repos\CarService\CarService.Web\obj\Any CPU\Release\netcoreapp2.0\CarService.Web.csproj.CoreCompileInputs.cache
+C:\Users\ruzza.DESKTOP-ETLKRPD\source\repos\CarService\CarService.Web\obj\Any CPU\Release\netcoreapp2.0\CarService.Web.AssemblyInfoInputs.cache
+C:\Users\ruzza.DESKTOP-ETLKRPD\source\repos\CarService\CarService.Web\obj\Any CPU\Release\netcoreapp2.0\CarService.Web.AssemblyInfo.cs
+C:\Users\ruzza.DESKTOP-ETLKRPD\source\repos\CarService\CarService.Web\obj\Any CPU\Release\netcoreapp2.0\CarService.Web.dll
+C:\Users\ruzza.DESKTOP-ETLKRPD\source\repos\CarService\CarService.Web\obj\Any CPU\Release\netcoreapp2.0\CarService.Web.pdb

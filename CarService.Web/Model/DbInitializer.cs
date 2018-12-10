@@ -21,7 +21,7 @@ namespace CarService.Web.Model
                 ctx.Database.EnsureCreated();
 
                 List<VehicleMake> data = new List<VehicleMake>
-            {
+                {
                 new VehicleMake { VehicleModels = new List<VehicleModel> {
                                       new VehicleModel {
                                           Name = "Outlander",
@@ -87,13 +87,54 @@ namespace CarService.Web.Model
                                       },
                                   },
                                   Name = "Porsche",
-                },
-            };
+                    },
+                };
+
                 foreach (var entry in data)
                 {
                     ctx.Add(entry);
                 }
 
+                List<Service> services = new List<Service>
+                {
+                    new Service
+                    {
+                        Name = "Oil & Filter Change'"
+                    },
+                    new Service
+                    {
+                        Name = "Wiper Blades Change"
+                    },
+
+                    new Service
+                    {
+                        Name = "Brake Issues"
+                    },
+                    new Service
+                    {
+                        Name = "Wheels Alignment"
+                    },
+                    new Service
+                    {
+                        Name = "Air Filter Change"
+                    },
+                    new Service
+                    {
+                        Name = "Battery Change"
+                    },
+                    new Service
+                    {
+                        Name = "Tire Rotation"
+                    },
+                    new Service
+                    {
+                        Name = "Check Engine Light"
+                    }
+                };
+                foreach (var entry in services)
+                {
+                    ctx.Add(entry);
+                }
                 ctx.SaveChanges();
             }
         }

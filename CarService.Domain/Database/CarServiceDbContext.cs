@@ -15,6 +15,7 @@ namespace CarService.Domain.Database
 
         public DbSet<VehicleMake> VehicleMakes { get; set; }
         public DbSet<VehicleModel> VehicleModels { get; set; }
+        public DbSet<Service> Services { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,6 +31,9 @@ namespace CarService.Domain.Database
                 .HasOne(v => v.VehicleMake)
                 .WithMany(v => v.VehicleModels)
                 .HasForeignKey(v => v.VehicleMakeForeignKey);
+
+            modelBuilder.Entity<Service>()
+                .HasKey(s => s.ServiceId);
         }
     }
 
@@ -49,5 +53,11 @@ namespace CarService.Domain.Database
 
         public int VehicleMakeForeignKey { get; set; }
         public VehicleMake VehicleMake { get; set; } 
+    }
+    
+    public class Service
+    {
+        public int ServiceId { get; set; }
+        public string Name { get; set; }
     }
 }
